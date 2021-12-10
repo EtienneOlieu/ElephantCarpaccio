@@ -1,6 +1,5 @@
 import Demo.Calculation;
 
-import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -17,13 +16,12 @@ public class Main {
             System.out.println("Please input how many items you want:");
             try {
                 int amount = 0;
-                amount = sc.nextInt();
+                amount = Integer.parseInt(sc.nextLine());
 
                 System.out.println("Please input the price");
 
                 double price = 0;
-                price = sc.nextDouble();
-                sc.nextLine();
+                price = Double.parseDouble(sc.nextLine());
 
                 System.out.println("Which state are you in?");
                 System.out.println("""
@@ -56,21 +54,5 @@ public class Main {
                 running = false;
             }
         }
-
-
-        /*double result1 = calc.totalPrice(1000,10, "UT");
-        System.out.println(result1);
-
-        double result2 = calc.totalPrice(1000,10, "NV");
-        System.out.println(result2);
-
-        double result3 = calc.totalPrice(1000,10, "TX");
-        System.out.println(result3);
-
-        double result4 = calc.totalPrice(1000,10, "AL");
-        System.out.println(result4);
-
-        double result5 = calc.totalPrice(1000,10, "CA");
-        System.out.println(result5);*/
     }
 }
