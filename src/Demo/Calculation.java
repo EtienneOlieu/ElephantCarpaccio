@@ -1,25 +1,27 @@
 package Demo;
 
+import java.text.DecimalFormat;
+
 public class Calculation {
 
-    public double totalPrice(int amount, double price, String state){
+    public String totalPrice(int amount, double price, String state){
+        DecimalFormat df = new DecimalFormat("0.00");
 
-        double disc = 0;
-        double sum = 0;
+        double disc = 1;
         double totalPrice = price * amount;
-        if (totalPrice <= 1000){
-            disc = 0.97;
-        }else if (totalPrice <= 5000){
-            disc = 0.95;
-        }else if (totalPrice <= 7000){
-            disc = 0.93;
-        }else if (totalPrice <= 10000){
-            disc = 0.90;
-        }else if (totalPrice > 50000){
-            disc = 0.85;
+        if (totalPrice >= 1000 && totalPrice <5000){
+            disc = 0.97; //3% rabat
+        }else if (totalPrice >= 5000 && totalPrice < 7000){
+            disc = 0.95; //5% rabat
+        }else if (totalPrice >= 7000 && totalPrice < 10000){
+            disc = 0.93; //7% rabat
+        }else if (totalPrice >= 10000 && totalPrice < 50000){
+            disc = 0.90; //10% rabat
+        }else if (totalPrice >= 50000){
+            disc = 0.85; //15% rabat
         }
 
-        double taxRate = 0;
+        double taxRate = 1;
 
         if (state.equals("UT")){
             taxRate =  1.0685;
@@ -33,9 +35,9 @@ public class Calculation {
             taxRate = 1.0825;
         }
 
-        sum = (totalPrice * disc) * taxRate;
+        double sum = (totalPrice * disc) * taxRate;
 
-        return sum;
+        return "The total value of your order is: " + df.format(sum);
 
     }
 
