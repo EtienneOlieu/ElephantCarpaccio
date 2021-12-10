@@ -1,11 +1,8 @@
 package Demo;
 
-import java.text.DecimalFormat;
-
 public class Calculation {
 
-    public String totalPrice(int amount, double price, String state){
-        DecimalFormat df = new DecimalFormat("0.00");
+    public Double totalPrice(int amount, double price, String state){
 
         double disc = 1;
         double totalPrice = price * amount;
@@ -37,7 +34,7 @@ public class Calculation {
 
         double sum = (totalPrice * disc) * taxRate;
 
-        return "The total value of your order is: " + df.format(sum);
+        return sum;
 
     }
 
